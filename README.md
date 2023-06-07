@@ -28,6 +28,6 @@ then on your machine tunnel using
 
 You can add `-N -f` to send it to the background.
 
-The container can be found at
-mayer: `/home/oalterkait/minkowski-1.12-container`
+The container can be found at:
+ - mayer: `/home/oalterkait/minkowski-1.12-container`
 
