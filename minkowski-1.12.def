@@ -1,0 +1,93 @@
+Bootstrap: docker
+From: nvidia/cuda:11.6.0-devel-ubuntu20.04
+
+
+%help
+    This is a Singularity Container for a Pytorch enviroment with MinkowskiEngine and some other packages installed
+
+%labels
+    Maintainer Omar Alterkait <omar.alterkait@tufts.edu>
+    Version 1.0
+
+%post
+    # Stop timezone interruption
+    export TZ=America/New_York
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+    # Install Packages and Python
+    apt-get update && apt-get install -y binutils \
+    build-essential \
+    libfftw3-dev \
+    gcc \
+    g++ \
+    gfortran \
+    git \
+    libgsl0-dev \
+    libjpeg-dev \
+    libpng-dev \
+    libx11-dev \
+    libxext-dev \
+    libxft-dev \
+    libxml2-dev \
+    libxpm-dev \
+    python3 \
+    python3-dev \
+    python3-pip \
+    openssl \
+    libxml2-dev \
+    tar \
+    wget && \
+    apt-get autoremove -y && apt-get clean -y
+
+    # Install Python Libraries
+    python3 -m pip --no-cache-dir install \
+    pytest \
+    pytest-cov \
+    numpy \
+    matplotlib \
+    scipy \
+    pandas \
+    ipykernel \
+    jupyter \
+    jupyterlab \
+    scikit-learn \
+    scikit-image \
+    seaborn \
+    graphviz \
+    gpustat \
+    h5py \
+    gitpython \
+    ptvsd \
+    open3d 
+    
+    # Install Pytorch
+    python3 -m pip --no-cache-dir install torch==1.12.0+cu116 torchvision==0.13.0+cu116 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu116
+    
+    # Install pytorch dependant python libraries
+    python3 -m pip --no-cache-dir install \
+    wandb \
+    pytorch-lightning==2.0.0 \
+    torchmetrics
+    
+    apt-get update
+
+    # Install Minkowski Dependancies
+    DEBIAN_FRONTEND=noninteractive apt-get install -y git ninja-build cmake build-essential libopenblas-dev \
+    xterm xauth openssh-server tmux wget mate-desktop-environment-core
+    
+    # You should modify this to match your GPU compute capability
+export TORCH_CUDA_ARCH_LIST="6.0 6.1 6.2 7.0 7.2 7.5 8.0 8.6"
+export TORCH_NVCC_FLAGS="-Xfatbin -compress-all"
+    
+    # Clean up
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+    
+    # Set environment variable
+    export MAX_JOBS=4
+    
+    # Install Minkowski
+    CXX=g++-9;CUDA_HOME=/usr/local/cuda;PATH=/usr/local/cuda/bin:${PATH} pip3 install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps \
+    --install-option="--force_cuda" \
+    --install-option="--cuda_home=/usr/local/cuda" \
+    --install-option="--blas=openblas"
