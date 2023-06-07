@@ -4,8 +4,8 @@ This is a singularity container for particle reconstruction usage. This package 
 | Package           | Version |
 |-------------------|---------|
 | python            | 3.8     |
-| pytorch           | 1.12.0  |
 | cuda              | 11.6    |
+| pytorch           | 1.12.0  |
 | pytorch_lightning | 2.0.0   |
 
 The container can be found at 
