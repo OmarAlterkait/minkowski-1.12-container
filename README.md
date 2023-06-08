@@ -14,7 +14,7 @@ This package contains many common packages. Mainly
 | python            | 3.8     |
 | cuda              | 11.6    |
 | pytorch           | 1.12.0  |
-| pytorch_lightning | 2.0.0   |
+| lightning         | 2.0.0   |
 
 You can install any other package by going into the container then installing with `pip install --user`
 
