@@ -22,6 +22,7 @@ From: nvidia/cuda:11.6.0-devel-ubuntu20.04
     g++ \
     gfortran \
     git \
+    emacs \
     libgsl0-dev \
     libjpeg-dev \
     libpng-dev \
@@ -50,6 +51,7 @@ From: nvidia/cuda:11.6.0-devel-ubuntu20.04
     ipykernel \
     jupyter \
     jupyterlab \
+    jupyter_core \
     scikit-learn \
     scikit-image \
     seaborn \
