@@ -21,7 +21,7 @@ This package contains many common packages. Mainly
 You can install any other package by going into the container then installing with `pip install --user`
 
 ## ROOT
-A ROOT version is also available. Run `source /usr/local/root/bin/thisroot.sh` open starting the container to initialize root.
+A ROOT version is also available. Run `source /usr/local/root/bin/thisroot.sh` upon starting the container to initialize root.
 
 ## Jupyter 
 To run a jupyter notebook through the container. On the server, run
@@ -38,7 +38,7 @@ You can add `-N -f` to send it to the background.
 The container can be found at:
  - mayer:
      - `/home/oalterkait/minkowski-1.12-container/mink-pytorch1.12.sif`
-     -ROOT: `/home/oalterkait/minkowski-1.12-container/mink-pytorch1.12-root.sif`
+     - ROOT: `/home/oalterkait/minkowski-1.12-container/mink-pytorch1.12-root.sif`
 
 If you face any problems, please feel free to contact me
 `Omar.Alterkait@tufts.edu`
