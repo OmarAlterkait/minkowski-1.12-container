@@ -20,7 +20,7 @@ You can install any other package by going into the container then installing wi
 
 To run a jupyter notebook through the container. On the server, run
 
-`singularity exec mink-pytorch1.12.sif jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`
+`singularity exec --nv mink-pytorch1.12.sif jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`
 
 then on your machine tunnel using
 
