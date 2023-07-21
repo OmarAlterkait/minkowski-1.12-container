@@ -1,7 +1,7 @@
 # minkowski-1.12-container
 This is a singularity container for particle reconstruction usage. You can build the container using (you need root access to build)
 
-`sudo singularity build mink-pytorch1.12.sif minkowski-1.12.def`
+`sudo singularity build mink-pytorch1.12.sif minkowski-pytorch1.12.def`
 
 You can run the container using
 
