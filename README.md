@@ -7,17 +7,23 @@ You can run the container using
 
 `singularity shell --nv mink-pytorch1.12.sif`
 
+
+## Packages
 This package contains many common packages. Mainly
 
 | Package           | Version |
 |-------------------|---------|
-| python            | 3.8     |
+| python            | 3.9     |
 | cuda              | 11.6    |
 | pytorch           | 1.12.0  |
 | lightning         | 2.0.3   |
 
 You can install any other package by going into the container then installing with `pip install --user`
 
+## ROOT
+A ROOT version is also available. Run `source /usr/local/root/bin/thisroot.sh` open starting the container to initialize root.
+
+## Jupyter 
 To run a jupyter notebook through the container. On the server, run
 
 `singularity exec --nv mink-pytorch1.12.sif jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`
@@ -28,6 +34,12 @@ then on your machine tunnel using
 
 You can add `-N -f` to send it to the background.
 
+## Container Location
 The container can be found at:
- - mayer: `/home/oalterkait/minkowski-1.12-container`
+ - mayer:
+     - `/home/oalterkait/minkowski-1.12-container/mink-pytorch1.12.sif`
+     -ROOT: `/home/oalterkait/minkowski-1.12-container/mink-pytorch1.12-root.sif`
+
+If you face any problems, please feel free to contact me
+`Omar.Alterkait@tufts.edu`
 
